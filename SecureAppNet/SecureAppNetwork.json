@@ -1,0 +1,713 @@
+{
+
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+
+  "contentVersion": "1.0.0.0",
+
+  "parameters": {
+
+    "virtualNetworkName": {
+
+      "type": "string",
+
+      "defaultValue": "SecureAppNetwork_VNet",
+
+      "metadata": {
+
+        "description": "This is a secure baseline for an application virtual network."
+
+      }
+
+    },
+
+    "addressPrefix": {
+
+      "type": "string",
+
+      "defaultValue": "10.0.0.0/16",
+
+      "metadata": {
+
+        "description": "The CIDR address space for the secure Virtual Network in Azure"
+
+      }
+
+    },
+
+    "WebSubnetPrefix": {
+
+      "type": "string",
+
+      "defaultValue": "10.0.0.0/24",
+
+      "metadata": {
+
+        "description": "This is CIDR prefix for the Web Subnet"
+
+      }
+
+    },
+
+    "AppSubnetPrefix": {
+
+      "type": "string",
+
+      "defaultValue": "10.0.1.0/24",
+
+      "metadata": {
+
+        "description": "This is CIDR prefix for the Application Subnet"
+
+      }
+
+    },
+
+    "DBSubnetPrefix": {
+
+      "type": "string",
+
+      "defaultValue": "10.0.2.0/24",
+
+      "metadata": {
+
+        "description": "This is CIDR prefix for the Database Subnet"
+
+      }
+
+    },
+
+     "AdminSubnetPrefix": {
+
+      "type": "string",
+
+      "defaultValue": "10.0.3.0/24",
+
+      "metadata": {
+
+        "description": "This is CIDR prefix for the Admin Subnet"
+
+      }
+
+    },
+
+    "WebNSGName": {
+
+      "type": "string",
+
+      "defaultValue": "WEB_NSG",
+
+      "metadata": {
+
+        "description": "This is name of the networkSecurityGroup that will be assigned to Web Subnet"
+
+      }
+
+    },
+
+    "AppNSGName": {
+
+      "type": "string",
+
+      "defaultValue": "APP_NSG",
+
+      "metadata": {
+
+        "description": "This is name of the networkSecurityGroup that will be assigned to Application Subnet"
+
+      }
+
+    },
+
+    "DBNSGName": {
+
+      "type": "string",
+
+      "defaultValue": "DB_NSG",
+
+      "metadata": {
+
+        "description": "This is name of the networkSecurityGroup that will be assigned to Database Subnet"
+
+      }
+
+    },
+
+   "AdminNSGName": {
+
+      "type": "string",
+
+      "defaultValue": "ADMIN_NSG",
+
+      "metadata": {
+
+        "description": "This is name of the networkSecurityGroup that will be assigned to Admin Subnet"
+
+      }
+
+    }
+
+  },
+
+  "resources": [
+
+    {
+
+      "apiVersion": "2015-05-01-preview",
+
+      "type": "Microsoft.Network/networkSecurityGroups",
+
+      "name": "[parameters('WebNSGName')]",
+
+      "location": "[resourceGroup().location]",
+
+      "properties": {
+
+        "securityRules": [
+
+          {
+
+            "name": "allow_RDP_admin_inbound",
+
+            "properties": {
+
+              "description": "Allow RDP from Admin subnet",
+
+              "protocol": "tcp",
+
+              "sourcePortRange": "*",
+
+              "destinationPortRange": "3389",
+
+              "sourceAddressPrefix": "[parameters('AdminSubnetPrefix')]",
+
+              "destinationAddressPrefix": "*",
+
+              "access": "Allow",
+
+              "priority": 100,
+
+              "direction": "Inbound"
+
+            }
+
+          },
+
+          {
+
+            "name": "allow_https_inbound",
+
+            "properties": {
+
+              "description": "Allow HTTPS inbound from internet",
+
+              "protocol": "Tcp",
+
+              "sourcePortRange": "*",
+
+              "destinationPortRange": "443",
+
+              "sourceAddressPrefix": "Internet",
+
+              "destinationAddressPrefix": "*",
+
+              "access": "Allow",
+
+              "priority": 200,
+
+              "direction": "Inbound"
+
+            }
+
+          },
+
+          {
+
+            "name": "deny_internet_outbound",
+
+            "properties": {
+
+              "description": "Block Internet Outbound",
+
+              "protocol": "*",
+
+              "sourcePortRange": "*",
+
+              "destinationPortRange": "*",
+
+              "sourceAddressPrefix": "*",
+
+              "destinationAddressPrefix": "Internet",
+
+              "access": "Deny",
+
+              "priority": 300,
+
+              "direction": "Outbound"
+
+            }
+
+          }
+
+        ]
+
+      }
+
+    },
+
+    {
+
+      "apiVersion": "2015-05-01-preview",
+
+      "type": "Microsoft.Network/networkSecurityGroups",
+
+      "name": "[parameters('AppNSGName')]",
+
+      "location": "[resourceGroup().location]",
+
+      "properties": {
+
+        "securityRules": [
+
+           {
+
+            "name": "allow_rdp_admin_inbound",
+
+            "properties": {
+
+              "description": "Allow RDP from Admin subnet",
+
+              "protocol": "tcp",
+
+              "sourcePortRange": "*",
+
+              "destinationPortRange": "3389",
+
+              "sourceAddressPrefix": "[parameters('AdminSubnetPrefix')]",
+
+              "destinationAddressPrefix": "*",
+
+              "access": "Allow",
+
+              "priority": 100,
+
+              "direction": "Inbound"
+
+            }
+
+          },
+
+          {
+
+            "name": "allow_web_inbound",
+
+            "properties": {
+
+              "description": "Allow HTTPS from Web Subnet",
+
+              "protocol": "Tcp",
+
+              "sourcePortRange": "*",
+
+              "destinationPortRange": "443",
+
+              "sourceAddressPrefix": "[parameters('WebSubnetPrefix')]",
+
+              "destinationAddressPrefix": "*",
+
+              "access": "Allow",
+
+              "priority": 200,
+
+              "direction": "Inbound"
+
+            }
+
+          },
+
+           {
+
+            "name": "deny_internet_outbound",
+
+            "properties": {
+
+              "description": "Block Internet",
+
+              "protocol": "*",
+
+              "sourcePortRange": "*",
+
+              "destinationPortRange": "*",
+
+              "sourceAddressPrefix": "*",
+
+              "destinationAddressPrefix": "Internet",
+
+              "access": "Deny",
+
+              "priority": 300,
+
+              "direction": "Outbound"
+
+            }
+
+          }
+
+        ]
+
+      }
+
+    },
+
+    {
+
+      "apiVersion": "2015-05-01-preview",
+
+      "type": "Microsoft.Network/networkSecurityGroups",
+
+      "name": "[parameters('DBNSGName')]",
+
+      "location": "[resourceGroup().location]",
+
+      "properties": {
+
+        "securityRules": [
+
+          {
+
+            "name": "allow_rdp_admin_inbound",
+
+            "properties": {
+
+              "description": "Allow RDP from Admin Subnet",
+
+              "protocol": "Tcp",
+
+              "sourcePortRange": "*",
+
+              "destinationPortRange": "3389",
+
+              "sourceAddressPrefix": "[parameters('AdminSubnetPrefix')]",
+
+              "destinationAddressPrefix": "*",
+
+              "access": "Allow",
+
+              "priority": 100,
+
+              "direction": "Inbound"
+
+            }
+
+          },
+
+          {
+
+            "name": "allow_sql_app_inbound",
+
+            "properties": {
+
+              "description": "Allow APP Subnet SQL",
+
+              "protocol": "Tcp",
+
+              "sourcePortRange": "*",
+
+              "destinationPortRange": "1433",
+
+              "sourceAddressPrefix": "[parameters('AppSubnetPrefix')]",
+
+              "destinationAddressPrefix": "*",
+
+              "access": "Allow",
+
+              "priority": 200,
+
+              "direction": "Inbound"
+
+            }
+
+          },
+
+          {
+
+            "name": "deny_web_inbound",
+
+            "properties": {
+
+              "description": "Block Web Subnet",
+
+              "protocol": "*",
+
+              "sourcePortRange": "*",
+
+              "destinationPortRange": "*",
+
+              "sourceAddressPrefix": "[parameters('WebSubnetPrefix')]",
+
+              "destinationAddressPrefix": "*",
+
+              "access": "Deny",
+
+              "priority": 300,
+
+              "direction": "Inbound"
+
+            }
+
+          },
+
+          {
+
+            "name": "deny_app_inbound",
+
+            "properties": {
+
+              "description": "Block App Subnet",
+
+              "protocol": "*",
+
+              "sourcePortRange": "*",
+
+              "destinationPortRange": "*",
+
+              "sourceAddressPrefix": "[parameters('AppSubnetPrefix')]",
+
+              "destinationAddressPrefix": "*",
+
+              "access": "Deny",
+
+              "priority": 400,
+
+              "direction": "Inbound"
+
+            }
+
+          },
+
+          {
+
+            "name": "deny_internet_outbound",
+
+            "properties": {
+
+              "description": "Block Internet",
+
+              "protocol": "*",
+
+              "sourcePortRange": "*",
+
+              "destinationPortRange": "*",
+
+              "sourceAddressPrefix": "*",
+
+              "destinationAddressPrefix": "Internet",
+
+              "access": "Deny",
+
+              "priority": 500,
+
+              "direction": "Outbound"
+
+            }
+
+          }
+          
+        ]
+
+      }
+
+    },
+
+     {
+
+      "apiVersion": "2015-05-01-preview",
+
+      "type": "Microsoft.Network/networkSecurityGroups",
+
+      "name": "[parameters('AdminNSGName')]",
+
+      "location": "[resourceGroup().location]",
+
+      "properties": {
+
+        "securityRules": [
+
+         {
+
+            "name": "allow_rdp_inbound",
+
+            "properties": {
+
+              "description": "Allow RDP from Internet",
+
+              "protocol": "Tcp",
+
+              "sourcePortRange": "*",
+
+              "destinationPortRange": "3389",
+
+              "sourceAddressPrefix": "Internet",
+
+              "destinationAddressPrefix": "*",
+
+              "access": "Allow",
+
+              "priority": 100,
+
+              "direction": "Inbound"
+
+            }
+
+          },
+
+          {
+
+            "name": "deny_internet_outbound",
+
+            "properties": {
+
+              "description": "Deny outbound internet traffic",
+
+              "protocol": "*",
+
+              "sourcePortRange": "*",
+
+              "destinationPortRange": "*",
+
+              "sourceAddressPrefix": "*",
+
+              "destinationAddressPrefix": "Internet",
+
+              "access": "Deny",
+
+              "priority": 200,
+
+              "direction": "Outbound"
+
+            }
+
+          }
+
+        ]
+
+      }
+
+    },
+
+    {
+
+      "apiVersion": "2015-05-01-preview",
+
+      "type": "Microsoft.Network/virtualNetworks",
+
+      "name": "[parameters('virtualNetworkName')]",
+
+      "location": "[resourceGroup().location]",
+
+      "dependsOn": [
+
+        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('WebNSGName'))]",
+
+        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('AppNSGName'))]",
+
+        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('DBNSGName'))]",
+
+        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('AdminNSGName'))]"
+
+      ],
+
+      "properties": {
+
+        "addressSpace": {
+
+          "addressPrefixes": [
+
+            "[parameters('addressPrefix')]"
+
+          ]
+
+        },
+
+        "subnets": [
+
+          {
+
+            "name": "WebSubnetName",
+
+            "properties": {
+
+              "addressPrefix": "[parameters('WebSubnetPrefix')]",
+
+              "networkSecurityGroup": {
+
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('WebNSGName'))]"
+
+              }
+
+            }
+
+          },
+
+          {
+
+            "name": "AppSubnetName",
+
+            "properties": {
+
+              "addressPrefix": "[parameters('AppSubnetPrefix')]",
+
+              "networkSecurityGroup": {
+
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('AppNSGName'))]"
+
+              }
+
+            }
+
+          },
+
+          {
+
+            "name": "DBSubnetName",
+
+            "properties": {
+
+              "addressPrefix": "[parameters('DBSubnetPrefix')]",
+
+              "networkSecurityGroup": {
+
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('DBNSGName'))]"
+
+              }
+
+            }
+
+          },
+
+          {
+
+            "name": "AdminSubnetName",
+
+            "properties": {
+
+              "addressPrefix": "[parameters('AdminSubnetPrefix')]",
+
+              "networkSecurityGroup": {
+
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('AdminNSGName'))]"
+
+              }
+
+            }
+
+          }
+
+        ]
+
+      }
+
+    }
+
+  ]
+
+}

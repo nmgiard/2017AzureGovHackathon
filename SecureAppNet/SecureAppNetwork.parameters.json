@@ -1,0 +1,71 @@
+{
+
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+
+  "contentVersion": "1.0.0.0",
+
+  "parameters": {
+
+    "virtualNetworkName": {
+
+      "value": "SecureAppNetwork_VNet"
+
+    },
+
+    "addressPrefix": {
+
+      "value": "10.0.0.0/16"
+
+    },
+
+    "WebSubnetPrefix": {
+
+      "value": "10.0.0.0/24"
+
+    },
+
+    "AppSubnetPrefix": {
+
+      "value": "10.0.1.0/24"
+
+    },
+
+    "DBSubnetPrefix": {
+
+      "value": "10.0.2.0/24"
+
+    },
+
+    "AdminSubnetPrefix": {
+
+      "value": "10.0.3.0/24"
+
+    },
+
+    "WebNSGName": {
+
+      "value": "webnsg"
+
+    },
+
+    "AppNSGName": {
+
+      "value": "appnsg"
+
+    },
+
+    "DBNSGName": {
+
+      "value": "dbnsg"
+
+    },
+
+    "AdminNSGName": {
+
+      "value": "adminnsg"
+
+    }
+
+  }
+
+}
