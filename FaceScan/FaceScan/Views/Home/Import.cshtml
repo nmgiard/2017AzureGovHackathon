@@ -1,0 +1,42 @@
+﻿@model IEnumerable<FaceScan.Models.User>
+
+@{
+    ViewData["Title"] = "Import";
+}
+
+    <h2>@ViewData["Title"]</h2>
+    <h3>@ViewData["Message"]</h3>
+
+    <p>Setup and import directory to Person Group.</p>
+
+    <p>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Last)
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.First)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Last)
+                    </td>
+                </tr>
+            }
+        </table>
+
+    </p>

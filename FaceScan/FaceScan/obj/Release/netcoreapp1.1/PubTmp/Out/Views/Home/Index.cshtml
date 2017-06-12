@@ -1,0 +1,258 @@
+﻿@{
+    ViewData["Title"] = "ID User";
+    var hide = ((string)ViewData["Results"] == "NO");
+}
+
+
+
+<script type="text/javascript">
+    function saveImageClickEvent() {
+        var form = $("#drawingForm");
+        var image = document.getElementById("canvas").toDataURL("image/png");
+        image = image.replace('data:image/png;base64,', '');
+        $("#imageData").val(image);
+        form.submit();
+    }
+
+    function saveImageClickEvent2() {
+
+        var image = document.getElementById("canvas").toDataURL("image/png");
+        var data = { "imageData": image.replace('data:image/png;base64,', '') };
+
+        $.ajax({
+            url: '/Home/UploadImg',
+            type: 'POST',
+            data: data,
+            success: function (msg) {
+                if (msg.personId.length > 0)
+                {
+                    window.location.href = '/Home/Person?personId=' + msg.personId;
+                }
+                else {
+                     $("#noResults").show();
+                }
+                
+            }
+        });
+    }
+
+
+    (function () {
+
+        var width = 320;
+
+        var height = 0;
+
+        var streaming = false;
+
+        var video = null;
+
+        var canvas = null;
+
+        var photo = null;
+
+        var startbutton = null;
+
+
+
+        function startup() {
+
+            video = document.getElementById('video');
+
+            canvas = document.getElementById('canvas');
+
+            photo = document.getElementById('photo');
+
+            startbutton = document.getElementById('startbutton');
+
+
+            navigator.getMedia = (navigator.getUserMedia ||
+
+                navigator.webkitGetUserMedia ||
+
+                navigator.mozGetUserMedia ||
+
+                navigator.msGetUserMedia);
+
+
+            navigator.getMedia(
+
+                {
+
+                    video: true,
+
+                    audio: false
+
+                },
+
+                function (stream) {
+
+                    if (navigator.mozGetUserMedia) {
+
+                        video.mozSrcObject = stream;
+
+                    } else {
+
+                        var vendorURL = window.URL || window.webkitURL;
+
+                        video.src = vendorURL.createObjectURL(stream);
+
+                    }
+
+                    video.play();
+
+                },
+
+                function (err) {
+
+                    console.log("An error occured! " + err);
+
+                }
+
+            );
+
+            video.addEventListener('canplay', function (ev) {
+
+                if (!streaming) {
+
+                    height = video.videoHeight / (video.videoWidth / width);
+
+                    if (isNaN(height)) {
+
+                        height = width / (4 / 3);
+
+                    }
+
+                    video.setAttribute('width', width);
+
+                    video.setAttribute('height', height);
+
+                    canvas.setAttribute('width', width);
+
+                    canvas.setAttribute('height', height);
+
+                    streaming = true;
+
+                }
+
+            }, false);
+
+
+
+            startbutton.addEventListener('click', function (ev) {
+
+                takepicture();
+
+                ev.preventDefault();
+
+            }, false);
+
+
+
+            clearphoto();
+
+        }
+
+        function clearphoto() {
+
+            var context = canvas.getContext('2d');
+
+            context.fillStyle = "#AAA";
+
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+
+
+            var data = canvas.toDataURL('image/png');
+
+            photo.setAttribute('src', data);
+
+        }
+
+        function takepicture() {
+
+            var context = canvas.getContext('2d');
+
+            if (width && height) {
+
+                canvas.width = width;
+
+                canvas.height = height;
+
+                context.drawImage(video, 0, 0, width, height);
+
+
+
+                var data = canvas.toDataURL('image/png');
+
+                photo.setAttribute('src', data);
+                $("#photo").show();
+
+            } else {
+
+                clearphoto();
+
+            }
+
+        }
+
+        window.addEventListener('load', startup, false);
+
+    })();
+
+    
+</script>
+
+<h1>Identify User Based On Photograph</h1>
+<table class="table">
+    <tr>
+        <td width="200px;">
+                <img src="~/images/badge.JPG" alt="Badge Picture" height="150" width="150" />
+        </td>
+        <td>
+            <h3>Check with File</h3>
+            <p>Upload a headshot of the user you wish to validate</p>
+            <form method="post" asp-action="UploadFiles" asp-controller="Home" enctype="multipart/form-data">
+                <label class="btn btn-default btn-file">
+                    Select Image <input type="file" name="files" style="display: none;">
+                </label>
+                <input class="btn btn-default" type="submit" value="Upload" />
+            </form>
+        </td>
+        <td>
+            <h3>Check with Webcam</h3>
+            <p>Capture a picture of the person to validate.</p>
+            <div class="camera">
+                <video id="video" style="display:none;">Video stream not available.</video>
+                <button id="startbutton" class="btn btn-default">Take photo</button>
+                <input type="button" class="btn btn-default" id="btnSave" value="Submit Photo" onclick="saveImageClickEvent2()" />
+            </div>
+ 
+            <canvas id="canvas" style="display:none;"></canvas>
+            <div class="output">
+                <img id="photo" style="display:none;" alt="The screen capture will appear in this box.">
+            </div>
+            
+        </td>
+    </tr>
+</table>
+
+@using (Html.BeginForm("UploadImg", "Home", FormMethod.Post, new { id = "drawingForm" }))
+{
+
+        <input type="hidden" name="imageData" id="imageData" />
+}
+
+@{
+    if (((string)ViewData["Results"] == "NO"))
+    {
+        <h3 id="noResults" style="border:1px solid yellow;background-color:lightgoldenrodyellow;"><font color="darkred">No user found in directory. Please try again.</font></h3>
+    }
+    else
+    {
+        <h3 id="noResults" style="border:1px solid yellow;background-color:lightgoldenrodyellow; display:none;"><font color="darkred">No user found in directory. Please try again.</font></h3>
+    }
+}
+
+
+

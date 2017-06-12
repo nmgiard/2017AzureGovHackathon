@@ -1,0 +1,13 @@
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapper\bin\Debug\netcoreapp1.1\FaceAPIWrapper.deps.json
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapper\bin\Debug\netcoreapp1.1\FaceAPIWrapper.dll
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapper\obj\Debug\netcoreapp1.1\FaceAPIWrapper.AssemblyInfo.cs
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapper\bin\Debug\netcoreapp1.1\FaceAPIWrapper.pdb
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapper\obj\Debug\netcoreapp1.1\FaceAPIWrapper.dll
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapper\obj\Debug\netcoreapp1.1\FaceAPIWrapper.pdb
+C:\Users\nmgiard\documents\visual studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapper\obj\Debug\netcoreapp1.1\FaceAPIWrapper.csprojResolveAssemblyReference.cache
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapper\bin\Debug\netcoreapp1.1\FaceAPIWrapper.deps.json
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapper\bin\Debug\netcoreapp1.1\FaceAPIWrapper.dll
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapper\bin\Debug\netcoreapp1.1\FaceAPIWrapper.pdb
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapper\obj\Debug\netcoreapp1.1\FaceAPIWrapper.AssemblyInfo.cs
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapper\obj\Debug\netcoreapp1.1\FaceAPIWrapper.dll
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapper\obj\Debug\netcoreapp1.1\FaceAPIWrapper.pdb

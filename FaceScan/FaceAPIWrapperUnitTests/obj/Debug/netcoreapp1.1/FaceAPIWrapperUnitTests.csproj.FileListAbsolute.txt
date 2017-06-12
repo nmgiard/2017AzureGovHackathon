@@ -1,0 +1,28 @@
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.deps.json
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.runtimeconfig.json
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.runtimeconfig.dev.json
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapperUnitTests\obj\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.csprojResolveAssemblyReference.cache
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapperUnitTests\obj\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.AssemblyInfo.cs
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.dll
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.pdb
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\FaceAPIWrapper.dll
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\FaceAPIWrapper.pdb
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapperUnitTests\obj\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.dll
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceAPIWrapper\FaceAPIWrapperUnitTests\obj\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.pdb
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.deps.json
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.runtimeconfig.json
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.runtimeconfig.dev.json
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapperUnitTests\obj\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.csprojResolveAssemblyReference.cache
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapperUnitTests\obj\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.AssemblyInfo.cs
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapperUnitTests\obj\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.dll
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapperUnitTests\obj\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.pdb
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.dll
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\FaceAPIWrapperUnitTests.pdb
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\FaceAPIWrapper.dll
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceAPIWrapperUnitTests\bin\Debug\netcoreapp1.1\FaceAPIWrapper.pdb

@@ -1,0 +1,64 @@
+﻿@model FaceScan.Models.User
+
+<div>
+    <h3 style="border:1px solid green;background-color:lightgreen"><font color="darkgreen">Positive match</font></h3>
+    <h1>@Html.DisplayFor(model => model.First) @Html.DisplayFor(model => model.Last)</h1>
+    <h4>@Html.DisplayFor(model => model.Title)</h4>
+    <table class="table">
+            <tr>
+                <td width="300px;">
+                    @if (Model.UserPhoto != "")
+                    {
+                        <img src="@Model.UserPhoto" alt="User Picture" height="300" width="300"/>
+                    }
+                </td>
+                <td>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            First Name
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.First)
+                        </dd>
+                        <dt>
+                            Last Name
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Last)
+                        </dd>
+                        <dt>
+                            Email
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Email)
+                        </dd>
+                        <dt>
+                            Phone
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Phone)
+                        </dd>
+                        <dt>
+                            UPN
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.UPN)
+                        </dd>
+                        <dt>
+                            Address
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Address)
+                        </dd>
+                    </dl>
+                </td>
+
+            </tr>
+        
+    </table>
+
+   
+</div>
+<p>
+    @Html.ActionLink("Search again", "Index")
+</p>

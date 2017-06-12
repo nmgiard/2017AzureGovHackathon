@@ -1,0 +1,22 @@
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceScan\FaceScan\bin\Debug\netcoreapp1.1\FaceScan.deps.json
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceScan\FaceScan\bin\Debug\netcoreapp1.1\FaceScan.runtimeconfig.json
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceScan\FaceScan\bin\Debug\netcoreapp1.1\FaceScan.runtimeconfig.dev.json
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceScan\FaceScan\bin\Debug\netcoreapp1.1\FaceScan.dll
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceScan\FaceScan\bin\Debug\netcoreapp1.1\FaceScan.pdb
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceScan\FaceScan\obj\Debug\netcoreapp1.1\FaceScan.AssemblyInfo.cs
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceScan\FaceScan\obj\Debug\netcoreapp1.1\FaceScan.dll
+C:\Users\nmgiard\Documents\Visual Studio 2017\Projects\FaceScan\FaceScan\obj\Debug\netcoreapp1.1\FaceScan.pdb
+C:\Users\nmgiard\documents\visual studio 2017\Projects\FaceScan\FaceScan\obj\Debug\netcoreapp1.1\FaceScan.csprojResolveAssemblyReference.cache
+C:\Users\nmgiard\documents\visual studio 2017\Projects\FaceScan\FaceScan\bin\Debug\netcoreapp1.1\FaceAPIWrapper.dll
+C:\Users\nmgiard\documents\visual studio 2017\Projects\FaceScan\FaceScan\bin\Debug\netcoreapp1.1\FaceAPIWrapper.pdb
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceScan\bin\Debug\netcoreapp1.1\FaceScan.deps.json
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceScan\bin\Debug\netcoreapp1.1\FaceScan.runtimeconfig.json
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceScan\bin\Debug\netcoreapp1.1\FaceScan.runtimeconfig.dev.json
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceScan\obj\Debug\netcoreapp1.1\FaceScan.csprojResolveAssemblyReference.cache
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceScan\obj\Debug\netcoreapp1.1\FaceScan.AssemblyInfo.cs
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceScan\obj\Debug\netcoreapp1.1\FaceScan.dll
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceScan\obj\Debug\netcoreapp1.1\FaceScan.pdb
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceScan\bin\Debug\netcoreapp1.1\FaceScan.dll
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceScan\bin\Debug\netcoreapp1.1\FaceScan.pdb
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceScan\bin\Debug\netcoreapp1.1\FaceAPIWrapper.dll
+C:\Users\nmgiard\Source\Repos\2017AzureGovHackathon\FaceScan\FaceScan\bin\Debug\netcoreapp1.1\FaceAPIWrapper.pdb
